@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OX>
+    <OXMENU id="NAVIGATION_ESHOPADMIN">
+        <MAINMENU id="mxecondaanalytics">
+            <SUBMENU id="mxecondaanalyticseconda" cl="oeecondaanalyticsadmin" list="oeecondaanalyticsgeneral">
+                <TAB id="tbcloeecondaanalyticstracking" cl="oeecondaanalyticstracking" />
+            </SUBMENU>
+        </MAINMENU>
+    </OXMENU>
+</OX>
