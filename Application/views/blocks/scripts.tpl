@@ -1,55 +1,47 @@
 [{$smarty.block.parent}]
 
 [{block name="oeecondaanalytics_add_js_in_head"}]
-    [{capture append="oxidBlock_pageHead"}]
-        [{*<script type="text/javascript" src="[{$oViewConf->getModuleUrl('oeecondaanalytics', 'out/js/econda-recommendations.js')}]"></script>*}]
+    [{if $oViewConf->oeEcondaAnalyticsIsTrackingEnabled() === true}]
         <script type="text/javascript">
-            [{if $oViewConf->oeEcondaAnalyticsShowTrackingNote() == 'opt_in'}]
-            if (econda.privacyprotection.getPermissionsFromLocalStorage().profile.state === 'UNKNOWN') {
-                var emosProps = {};
-                econda.privacyprotection.applyAndStoreNewPrivacySettings(
-                    emosProps,
-                    {
-                        "permissions:profile": {
-                            state: "DENY"
-                        }
-                    }
-                );
+            function oeEcondaAnalyticsOptIn() {
+                oeEcondaAnalyticsSetCookie('emos_optout', '0', 365);
             }
+
+            function oeEcondaAnalyticsOptOut() {
+                oeEcondaAnalyticsSetCookie('emos_optout', '1', 365);
+            }
+
+            function oeEcondaAnalyticsSetCookie(name, value, days) {
+                var expires = '';
+                if (days) {
+                    var date = new Date();
+                    date.setTime(date.getTime() + (days*24*60*60*1000));
+                    expires = '; expires=' + date.toUTCString();
+                }
+                document.cookie = name + '=' + (value || '')  + expires + '; path=/';
+            }
+            function oeEcondaAnalyticsGetCookie(name) {
+                var nameExpression = name + "=";
+                var splitCookie = document.cookie.split(';');
+                for(var i=0;i < splitCookie.length;i++) {
+                    var c = splitCookie[i];
+                    while (c.charAt(0)==' ') c = c.substring(1,c.length);
+                    if (c.indexOf(nameExpression) == 0) return c.substring(nameExpression.length,c.length);
+                }
+                return null;
+            }
+
+            [{if $oViewConf->oeEcondaAnalyticsShowTrackingNote() == 'opt_in'}]
+                if (oeEcondaAnalyticsGetCookie('emos_optout') === null) {
+                    oeEcondaAnalyticsOptOut();
+                }
             [{/if}]
             [{if $oViewConf->oeEcondaAnalyticsShowTrackingNote() == 'opt_out'}]
-            if (econda.privacyprotection.getPermissionsFromLocalStorage().profile.state === 'UNKNOWN') {
-                var emosProps = {};
-                econda.privacyprotection.applyAndStoreNewPrivacySettings(
-                    emosProps,
-                    {
-                        "permissions:profile": {
-                            state: "ALLOW"
-                        }
-                    }
-                );
-            }
+                if (oeEcondaAnalyticsGetCookie('emos_optout') === null) {
+                    oeEcondaAnalyticsOptIn();
+                }
             [{/if}]
         </script>
-    [{/capture}]
-    [{oxscript include=$oViewConf->getModuleUrl('oeecondaanalytics','out/js/oeecondaanalytics.js')}]
-    [{if $oViewConf->oeEcondaAnalyticsEnableWidgets()}]
-        [{if $oViewConf->oeEcondaAnalyticsIsLoginAction()}]
-        <script type="text/javascript">
-            econda.data.visitor.login({
-                ids: {userId: '[{$oViewConf->oeEcondaAnalyticsGetLoggedInUserHashedId()}]', emailHash: '[{$oViewConf->oeEcondaAnalyticsGetLoggedInUserHashedEmail()}]'}
-            });
-        </script>
-        [{/if}]
-        [{if $oViewConf->oeEcondaAnalyticsIsLogoutAction()}]
-        <script type="text/javascript">
-            econda.data.visitor.logout();
-        </script>
-        [{/if}]
-        [{if $oViewConf->oeEcondaAnalyticsIsLoginAction() || $oViewConf->isStartPage()}]
-        <script type="text/javascript">
-            econda.privacyprotection.updatePrivacySettingsFromBackend('[{$oViewConf->oeEcondaAnalyticsGetClientKey()}]', 'privacy_protection');
-        </script>
-        [{/if}]
+        [{oxscript include=$oViewConf->getModuleUrl('oeecondaanalytics','out/js/oeecondaanalytics.js')}]
     [{/if}]
 [{/block}]

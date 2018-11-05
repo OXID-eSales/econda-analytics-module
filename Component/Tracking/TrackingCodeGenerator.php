@@ -8,13 +8,13 @@ namespace OxidEsales\EcondaAnalyticsModule\Component\Tracking;
 
 use \Econda\Tracking;
 use Econda\Tracking\OrderProcess;
+use Econda\Tracking\PageView;
 use Econda\Tracking\Product;
 use Econda\Tracking\ProductDetailView;
 use Econda\Tracking\Registration;
 use Econda\Tracking\Target;
 use Econda\Tracking\TransactionProduct;
 use OxidEsales\EcondaAnalyticsModule\Component\Tracking\SdkExtension\Email;
-use OxidEsales\EcondaAnalyticsModule\Component\Tracking\SdkExtension\PageView;
 
 /**
  * Class responsible for generating Econda tracking script.
@@ -69,9 +69,6 @@ class TrackingCodeGenerator
 
         $jsCode = "<script type=\"text/javascript\" " .
             "src=\"" . $this->url . "\" async=\"async\">" . " </script>";
-        $jsCode .= '<script type="text/javascript">';
-        $jsCode .= 'econda.privacyprotection.setEmos3PrivacySettings();';
-        $jsCode .= '</script>';
         $jsCode .= (string) $this->pageView;
 
         return $jsCode;
