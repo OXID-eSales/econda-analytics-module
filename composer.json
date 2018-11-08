@@ -5,12 +5,11 @@
     "keywords": ["oxid", "modules", "eShop"],
     "homepage": "https://www.oxid-esales.com",
     "license": [
-        "proprietary"
+        "GPL-3.0-only"
     ],
     "extra": {
         "oxideshop": {
             "blacklist-filter": [
-                "documentation/**/*.*",
                 "composer.json",
                 "README.md",
                 "LICENSE",
@@ -21,11 +20,7 @@
     },
     "require": {
         "php": ">=7.0",
-        "webmozart/path-util": "^2.3",
-        "gargron/fileupload": "^1.4.5",
-        "symfony/filesystem": "^3.0",
-        "econda/tracking": "^3.0.1",
-        "league/csv": "^9.1.4"
+        "oxid-esales/econda-tracking-component": "^v1.0.0"
     },
     "autoload": {
         "psr-4": {

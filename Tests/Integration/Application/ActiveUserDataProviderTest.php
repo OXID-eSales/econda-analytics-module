@@ -6,10 +6,8 @@
 
 namespace OxidEsales\EcondaAnalyticsModule\Tests\Integration\Application;
 
-use OxidEsales\EcondaAnalyticsModule\Application\Tracking\Helper\ActiveUserDataProvider;
-use OxidEsales\Eshop\Application\Model\User;
+use OxidEsales\EcondaTrackingComponent\Adapter\Helper\ActiveUserDataProvider;
 use \OxidEsales\Eshop\Core\Registry;
-use OxidEsales\Eshop\Core\Field;
 use OxidEsales\EcondaAnalyticsModule\Tests\Helper\UserPreparationTrait;
 
 class ActiveUserDataProviderTest extends \OxidEsales\TestingLibrary\UnitTestCase

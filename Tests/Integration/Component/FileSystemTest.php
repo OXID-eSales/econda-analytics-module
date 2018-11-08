@@ -6,7 +6,6 @@
 
 namespace OxidEsales\EcondaAnalyticsModule\Tests\Integration\Component;
 
-use org\bovigo\vfs\vfsStream;
 use Symfony\Component\Filesystem\Filesystem;
 
 class FileSystemTest extends \OxidEsales\TestingLibrary\UnitTestCase
@@ -21,7 +20,7 @@ class FileSystemTest extends \OxidEsales\TestingLibrary\UnitTestCase
 
     public function testDirectorySuccessfulCreation()
     {
-        $fileSystem = new \OxidEsales\EcondaAnalyticsModule\Component\File\FileSystem(new Filesystem());
+        $fileSystem = new \OxidEsales\EcondaTrackingComponent\File\FileSystem(new Filesystem());
 
         $this->assertTrue($fileSystem->createDirectory($this->virtualDirectory.'/testDirectory'));
         $this->assertTrue(is_dir($this->virtualDirectory.'/testDirectory'));
@@ -29,7 +28,7 @@ class FileSystemTest extends \OxidEsales\TestingLibrary\UnitTestCase
 
     public function testDirectoryUnsuccessfulCreation()
     {
-        $fileSystem = new \OxidEsales\EcondaAnalyticsModule\Component\File\FileSystem(new Filesystem());
+        $fileSystem = new \OxidEsales\EcondaTrackingComponent\File\FileSystem(new Filesystem());
 
         $this->assertFalse($fileSystem->createDirectory('/not_existing_directory/testDirectory'));
         $this->assertFalse(is_dir('/not_existing_directory/testDirectory'));
@@ -37,7 +36,7 @@ class FileSystemTest extends \OxidEsales\TestingLibrary\UnitTestCase
 
     public function testIfPathNotWritable()
     {
-        $fileSystem = new \OxidEsales\EcondaAnalyticsModule\Component\File\FileSystem(new Filesystem());
+        $fileSystem = new \OxidEsales\EcondaTrackingComponent\File\FileSystem(new Filesystem());
         chmod($this->virtualDirectory, 555);
 
         $this->assertFalse($fileSystem->isWritable($this->virtualDirectory.'/testDirectory'));
@@ -45,14 +44,14 @@ class FileSystemTest extends \OxidEsales\TestingLibrary\UnitTestCase
 
     public function testFileDoesNotExists()
     {
-        $fileSystem = new \OxidEsales\EcondaAnalyticsModule\Component\File\FileSystem(new Filesystem());
+        $fileSystem = new \OxidEsales\EcondaTrackingComponent\File\FileSystem(new Filesystem());
 
         $this->assertFalse($fileSystem->isFilePresent($this->virtualDirectory . '/any_file'));
     }
 
     public function testFileExists()
     {
-        $fileSystem = new \OxidEsales\EcondaAnalyticsModule\Component\File\FileSystem(new Filesystem());
+        $fileSystem = new \OxidEsales\EcondaTrackingComponent\File\FileSystem(new Filesystem());
 
         $this->assertTrue($fileSystem->isFilePresent($this->virtualDirectory.'/file.js'));
     }

@@ -7,8 +7,8 @@
 namespace OxidEsales\EcondaAnalyticsModule\Application\Controller\Admin;
 
 use OxidEsales\Eshop\Core\Registry;
-use OxidEsales\EcondaAnalyticsModule\Component\File\FileSystem;
-use OxidEsales\EcondaAnalyticsModule\Component\File\JsFileLocator;
+use OxidEsales\EcondaTrackingComponent\File\FileSystem;
+use OxidEsales\EcondaTrackingComponent\File\JsFileLocator;
 use FileUpload\FileUpload;
 
 /**

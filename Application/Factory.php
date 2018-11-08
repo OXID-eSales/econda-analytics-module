@@ -7,28 +7,29 @@
 namespace OxidEsales\EcondaAnalyticsModule\Application;
 
 use OxidEsales\EcondaAnalyticsModule\Application\Controller\Admin\HttpErrorsDisplayer;
-use OxidEsales\EcondaAnalyticsModule\Application\Tracking\Helper\ActiveControllerCategoryPathBuilder;
-use OxidEsales\EcondaAnalyticsModule\Application\Tracking\Helper\ActiveUserDataProvider;
-use OxidEsales\EcondaAnalyticsModule\Application\Tracking\Helper\CategoryPathBuilder;
-use OxidEsales\EcondaAnalyticsModule\Application\Tracking\Helper\SearchDataProvider;
-use OxidEsales\EcondaAnalyticsModule\Application\Tracking\Modifiers\OrderStepsMapModifier;
-use OxidEsales\EcondaAnalyticsModule\Application\Tracking\Modifiers\PageMapModifier;
-use OxidEsales\EcondaAnalyticsModule\Application\Tracking\Modifiers\EntityModifierByCurrentAction;
-use OxidEsales\EcondaAnalyticsModule\Application\Tracking\Modifiers\EntityModifierByCurrentBasketAction;
-use OxidEsales\EcondaAnalyticsModule\Application\Tracking\Page\PageIdentifiers;
-use OxidEsales\EcondaAnalyticsModule\Application\Tracking\Page\PageMap;
-use OxidEsales\EcondaAnalyticsModule\Application\Tracking\ProductPreparation\ProductDataPreparator;
-use OxidEsales\EcondaAnalyticsModule\Application\Tracking\ProductPreparation\ProductTitlePreparator;
-use OxidEsales\EcondaAnalyticsModule\Application\Tracking\ActivePageEntityPreparator;
-use OxidEsales\EcondaAnalyticsModule\Component\Tracking\ActivePageEntity;
-use OxidEsales\EcondaAnalyticsModule\Component\Tracking\ActivePageEntityInterface;
-use OxidEsales\EcondaAnalyticsModule\Component\Tracking\File\EmosFileData;
-use OxidEsales\EcondaAnalyticsModule\Component\Tracking\TrackingCodeGenerator;
-use OxidEsales\EcondaAnalyticsModule\Component\File\FileSystem;
-use OxidEsales\EcondaAnalyticsModule\Component\File\JsFileLocator;
-use OxidEsales\EcondaAnalyticsModule\Component\File\JsFileUploadFactory;
+use OxidEsales\EcondaTrackingComponent\Adapter\Helper\ActiveControllerCategoryPathBuilder;
+use OxidEsales\EcondaTrackingComponent\Adapter\Helper\ActiveUserDataProvider;
+use OxidEsales\EcondaTrackingComponent\Adapter\Helper\CategoryPathBuilder;
+use OxidEsales\EcondaTrackingComponent\Adapter\Helper\SearchDataProvider;
+use OxidEsales\EcondaTrackingComponent\Adapter\Modifiers\OrderStepsMapModifier;
+use OxidEsales\EcondaTrackingComponent\Adapter\Modifiers\PageMapModifier;
+use OxidEsales\EcondaTrackingComponent\Adapter\Modifiers\EntityModifierByCurrentAction;
+use OxidEsales\EcondaTrackingComponent\Adapter\Modifiers\EntityModifierByCurrentBasketAction;
+use OxidEsales\EcondaTrackingComponent\Adapter\Page\PageIdentifiers;
+use OxidEsales\EcondaTrackingComponent\Adapter\Page\PageMap;
+use OxidEsales\EcondaTrackingComponent\Adapter\ProductPreparation\ProductDataPreparator;
+use OxidEsales\EcondaTrackingComponent\Adapter\ProductPreparation\ProductTitlePreparator;
+use OxidEsales\EcondaTrackingComponent\Adapter\ActivePageEntityPreparator;
+use OxidEsales\EcondaTrackingComponent\TrackingCodeGenerator\ActivePageEntity;
+use OxidEsales\EcondaTrackingComponent\TrackingCodeGenerator\ActivePageEntityInterface;
+use OxidEsales\EcondaTrackingComponent\TrackingCodeGenerator\File\EmosFileData;
+use OxidEsales\EcondaTrackingComponent\TrackingCodeGenerator\TrackingCodeGenerator;
+use OxidEsales\EcondaTrackingComponent\File\FileSystem;
+use OxidEsales\EcondaTrackingComponent\File\JsFileLocator;
+use OxidEsales\EcondaTrackingComponent\File\JsFileUploadFactory;
 use OxidEsales\Eshop\Application\Model\User;
 use OxidEsales\Eshop\Core\Registry;
+use OxidEsales\Eshop\Core\ShopIdCalculator;
 use Smarty;
 
 /**
@@ -41,7 +42,13 @@ class Factory
      */
     public function makeEmosJsFileLocator()
     {
-        return new JsFileLocator(Registry::getConfig()->getOutDir(), EmosFileData::TRACKING_CODE_FILE_NAME, Registry::getConfig()->getOutUrl());
+        return new JsFileLocator(
+            Registry::getConfig()->getOutDir(),
+            'oeecondaanalytics',
+            EmosFileData::TRACKING_CODE_FILE_NAME,
+            Registry::getConfig()->getOutUrl(),
+            ShopIdCalculator::BASE_SHOP_ID
+        );
     }
 
     /**

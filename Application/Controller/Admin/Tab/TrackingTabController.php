@@ -11,8 +11,8 @@ use OxidEsales\EcondaAnalyticsModule\Application\Controller\Admin\ConfigurationT
 use OxidEsales\EcondaAnalyticsModule\Application\Controller\Admin\HttpErrorsDisplayer;
 use OxidEsales\EcondaAnalyticsModule\Application\Controller\Admin\FileUploadTrait;
 use OxidEsales\EcondaAnalyticsModule\Application\Factory;
-use OxidEsales\EcondaAnalyticsModule\Component\File\FileSystem;
-use OxidEsales\EcondaAnalyticsModule\Component\File\JsFileLocator;
+use OxidEsales\EcondaTrackingComponent\File\FileSystem;
+use OxidEsales\EcondaTrackingComponent\File\JsFileLocator;
 use FileUpload\FileUpload;
 
 /**

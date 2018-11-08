@@ -9,7 +9,7 @@ namespace OxidEsales\EcondaAnalyticsModule\Tests\Integration\Application;
 use FileUpload\FileUpload;
 use OxidEsales\EcondaAnalyticsModule\Application\Controller\Admin\Tab\TrackingTabController;
 use OxidEsales\EcondaAnalyticsModule\Application\Factory;
-use OxidEsales\EcondaAnalyticsModule\Component\File\FileSystem;
+use OxidEsales\EcondaTrackingComponent\File\FileSystem;
 use stdClass;
 
 class TrackingTabControllerTest extends \OxidEsales\TestingLibrary\UnitTestCase
