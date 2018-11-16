@@ -9,8 +9,8 @@ $sLangName = 'English';
 $aLang = [
     'charset' => 'UTF-8',
 
-    'mxecondaanalytics' => 'Econda analytics',
-    'mxecondaanalyticseconda' => 'econda',
+    'mxecondaanalytics' => 'econda',
+    'mxecondaanalyticseconda' => 'Analytics',
     'OEECONDAANALYTICS_UPLOAD_BUTTON_TITLE' => 'Upload',
     'OEECONDAANALYTICS_TRACKING_SECTION_TITLE' => 'econda Analytics',
     'OEECONDAANALYTICS_MESSAGE_FILE_IS_NOT_PRESENT' => 'At the moment the Analytics JS library is not present.'

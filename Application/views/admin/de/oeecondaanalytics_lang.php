@@ -9,8 +9,8 @@ $sLangName = 'Deutsch';
 $aLang = [
     'charset' => 'UTF-8',
 
-    'mxecondaanalytics' => 'Personalisierung',
-    'mxecondaanalyticseconda' => 'econda',
+    'mxecondaanalytics' => 'econda',
+    'mxecondaanalyticseconda' => 'Analytics',
     'OEECONDAANALYTICS_UPLOAD_BUTTON_TITLE' => 'Hochladen',
     'OEECONDAANALYTICS_TRACKING_SECTION_TITLE' => 'econda Analytics',
     'OEECONDAANALYTICS_MESSAGE_FILE_IS_NOT_PRESENT' => 'Die Analytics JS-Bibliothek ist momentan nicht vorhanden.'

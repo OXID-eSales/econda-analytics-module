@@ -60,7 +60,7 @@ sodass für Sie relevante Produkte angezeigt und uninteressante Angebote ausgebl
 Die Verarbeitung erfolgt gemäß Art. 6 Abs. 1 lit. f DSGVO und Sie können jederzeit von Ihren Betroffenenrechten Gebrauch machen.
 Wenn Sie dies nicht möchten, können Sie hier widersprechen. Wenn Sie unsicher sind, finden Sie hier die gesamten Datenschutzhinweise.
 <div>
-    <a class="oeecondaanalytics-optin" href="#" data-dismiss="alert">Ich bin einverstanden (Personalisierung aktivieren)</a>
+    <a class="oeecondaanalytics-optin" href="#" data-dismiss="alert">Ich bin einverstanden (econda Analytics aktivieren)</a>
 </div>
 EOT;
         $sql = "select count(oxid) from `oxcontents` where oxloadid = 'oeecondaanalyticsoptin'";
@@ -71,12 +71,12 @@ EOT;
             $content->setId($id);
             $content->setLanguage(0);
             $content->oxcontents__oxloadid = new Field('oeecondaanalyticsoptin');
-            $content->oxcontents__oxtitle = new Field('Cookie "Ich bin einverstanden (Personalisierung aktivieren)" Hinweis');
+            $content->oxcontents__oxtitle = new Field('Cookie "Ich bin einverstanden (Analytics aktivieren)" Hinweis');
             $content->oxcontents__oxcontent = new Field($text);
             $content->save();
 
             $content->setLanguage(1);
-            $content->oxcontents__oxtitle = new Field('Cookie "I agree (activate econdaanalytics)" hint');
+            $content->oxcontents__oxtitle = new Field('Cookie "I agree (activate econda analytics)" hint');
             $content->oxcontents__oxcontent = new Field('Please update this text. An example can be found in German language of this entry.');
             $content->save();
         }
@@ -95,7 +95,7 @@ sodass für Sie relevante Produkte angezeigt und uninteressante Angebote ausgebl
 Die Verarbeitung erfolgt gemäß Art. 6 Abs. 1 lit. f DSGVO und Sie können jederzeit von Ihren Betroffenenrechten Gebrauch machen.
 Wenn Sie dies nicht möchten, können Sie hier widersprechen. Wenn Sie unsicher sind, finden Sie hier die gesamten Datenschutzhinweise.
 <div>
-    <a class="oeecondaanalytics-optout" href="#" data-dismiss="alert">Widerspruch (Personalisierung deaktivieren)</a>
+    <a class="oeecondaanalytics-optout" href="#" data-dismiss="alert">Widerspruch (econda Analytics deaktivieren)</a>
 </div>
 EOT;
         $sql = "select count(oxid) from `oxcontents` where oxloadid = 'oeecondaanalyticsoptout'";
@@ -106,7 +106,7 @@ EOT;
             $content->setId($id);
             $content->setLanguage(0);
             $content->oxcontents__oxloadid = new Field('oeecondaanalyticsoptout');
-            $content->oxcontents__oxtitle = new Field('Cookie "Widerspruch (Personalisierung deaktivieren)" Hinweis');
+            $content->oxcontents__oxtitle = new Field('Cookie "Widerspruch (econda Analytics deaktivieren)" Hinweis');
             $content->oxcontents__oxcontent = new Field($text);
             $content->save();
 

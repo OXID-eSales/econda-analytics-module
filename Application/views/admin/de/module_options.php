@@ -13,6 +13,6 @@ $aLang = [
 
     'SHOP_MODULE_sOeEcondaAnalyticsTrackingShowNote' => 'Hinweis',
     'SHOP_MODULE_sOeEcondaAnalyticsTrackingShowNoteNo' => 'Nicht anzeigen',
-    'SHOP_MODULE_sOeEcondaAnalyticsTrackingShowNoteOptIn' => '"Ich bin einverstanden (Personalisierung aktivieren)" anzeigen',
-    'SHOP_MODULE_sOeEcondaAnalyticsTrackingShowNoteOptOut' => '"Widerspruch (Personalisierung deaktivieren)" anzeigen',
+    'SHOP_MODULE_sOeEcondaAnalyticsTrackingShowNoteOptIn' => '"Ich bin einverstanden (Analytics aktivieren)" anzeigen',
+    'SHOP_MODULE_sOeEcondaAnalyticsTrackingShowNoteOptOut' => '"Widerspruch (Analytics deaktivieren)" anzeigen',
 ];
