@@ -6,19 +6,20 @@
 
 namespace OxidEsales\EcondaAnalyticsModule\Application\Model;
 
+use OxidEsales\EcondaTrackingComponent\Adapter\ProductPreparation\ProductInterface;
 use OxidEsales\Eshop\Application\Model\Article;
 
 /**
  * @mixin \OxidEsales\Eshop\Application\Model\Article
  */
-class Product extends Product_parent
+class Product extends Product_parent implements ProductInterface
 {
     /**
      * Method checks if product has variants.
      *
      * @return bool
      */
-    public function oeEcondaAnalyticsHasVariants()
+    public function oeEcondaTrackingHasVariants()
     {
         $result = false;
         $sId = $this->getId();
@@ -38,10 +39,10 @@ class Product extends Product_parent
     /**
      * @return string|null
      */
-    public function oeEcondaAnalyticsGetSku()
+    public function oeEcondaTrackingGetSku()
     {
         $sku = null;
-        if (!$this->oeEcondaAnalyticsHasVariants()) {
+        if (!$this->oeEcondaTrackingHasVariants()) {
             $sku = (isset($this->oxarticles__oxartnum->value) && $this->oxarticles__oxartnum->value) ? $this->oxarticles__oxartnum->value : $this->getId();
         }
 
@@ -51,7 +52,7 @@ class Product extends Product_parent
     /**
      * @return string
      */
-    public function oeEcondaAnalyticsGetProductId()
+    public function oeEcondaTrackingGetProductId()
     {
         /** @var Article $parent */
         $parent = $this->getParentArticle();
