@@ -12,7 +12,7 @@ $sMetadataVersion = '2.1';
 /**
  * Module information.
  */
-$aModule = array(
+$aModule = [
     'id'           => 'oeecondaanalytics',
     'title'        => 'OXID analytics module powered by Econda',
     'description'  => [
@@ -53,4 +53,4 @@ $aModule = array(
     'smartyPluginDirectories' => [
         'Application/Core/Smarty/Plugin'
     ],
-);
+];
