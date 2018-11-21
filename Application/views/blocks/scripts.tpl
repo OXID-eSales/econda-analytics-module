@@ -41,6 +41,11 @@
                     oeEcondaAnalyticsOptIn();
                 }
             [{/if}]
+
+            window.emos3 = {
+                stored : [],
+                send : function(p){this.stored.push(p);}
+            };
         </script>
         [{oxscript include=$oViewConf->getModuleUrl('oeecondaanalytics','out/js/oeecondaanalytics.js')}]
     [{/if}]
