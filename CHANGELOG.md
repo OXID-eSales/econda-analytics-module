@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.0.2] - 2018-11-26
+
+### Fixed
+- Fix issue when sometimes empty SiteId and PageId is being sent.
+
 ## [1.0.1] - 2018-11-20
 
 ### Fixed
