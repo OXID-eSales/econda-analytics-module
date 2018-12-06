@@ -46,7 +46,7 @@ class Factory
             Registry::getConfig()->getOutDir(),
             'oeecondaanalytics',
             EmosFileData::TRACKING_CODE_FILE_NAME,
-            Registry::getConfig()->getOutUrl(),
+            Registry::getConfig()->getOutUrl(null, null, true),
             ShopIdCalculator::BASE_SHOP_ID
         );
     }
