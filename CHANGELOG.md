@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.1.0] - Not released yet
+
+### Added
+- New block `oeecondaanalytics_cookienote` in `Application/views/widget/header/cookienote.tpl`
+
 ## [1.0.4] - 2018-12-06
 
 ### Fixed
