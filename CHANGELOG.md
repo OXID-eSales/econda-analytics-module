@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - New block `oeecondaanalytics_cookienote` in `Application/views/widget/header/cookienote.tpl`
 
+### Fixed
+- Replaced deprecated getConfig usages
+
 ## [1.0.4] - 2018-12-06
 
 ### Fixed

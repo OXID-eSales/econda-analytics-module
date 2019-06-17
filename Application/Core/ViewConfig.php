@@ -16,7 +16,8 @@ class ViewConfig extends ViewConfig_parent
      */
     public function oeEcondaAnalyticsIsTrackingEnabled(): bool
     {
-        return (bool) $this->getConfig()->getConfigParam('blOeEcondaAnalyticsTracking');
+        $config = \OxidEsales\Eshop\Core\Registry::getConfig();
+        return (bool) $config->getConfigParam('blOeEcondaAnalyticsTracking');
     }
 
     /**
@@ -24,6 +25,7 @@ class ViewConfig extends ViewConfig_parent
      */
     public function oeEcondaAnalyticsShowTrackingNote(): string
     {
-        return $this->getConfig()->getConfigParam('sOeEcondaAnalyticsTrackingShowNote');
+        $config = \OxidEsales\Eshop\Core\Registry::getConfig();
+        return $config->getConfigParam('sOeEcondaAnalyticsTrackingShowNote');
     }
 }
