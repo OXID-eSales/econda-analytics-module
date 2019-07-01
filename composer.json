@@ -20,7 +20,7 @@
     },
     "require": {
         "php": ">=7.1",
-        "oxid-esales/econda-tracking-component": "^v1.0.1"
+        "oxid-esales/econda-tracking-component": "^v1.0.4"
     },
     "autoload": {
         "psr-4": {
