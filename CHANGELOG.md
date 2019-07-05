@@ -4,10 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [1.1.0] - Not released yet
-
-### Added
-- New block `oeecondaanalytics_cookienote` in `Application/views/widget/header/cookienote.tpl`
+## [1.2.0] - 2019-07-05
 
 ### Changed
 - Ensure module works with php 7.2
@@ -17,6 +14,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 - Dropped support of php 7.0
+
+## [1.1.0] - 2019-04-29
+
+### Added
+- New block `oeecondaanalytics_cookienote` in `Application/views/widget/header/cookienote.tpl`
 
 ## [1.0.4] - 2018-12-06
 
