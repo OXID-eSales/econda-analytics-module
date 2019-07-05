@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 - Ensure module works with php 7.2
+- Increase required econda tracking component version to 1.0.4
 
 ### Fixed
 - Replaced deprecated getConfig usages
