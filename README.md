@@ -15,6 +15,11 @@ Run the following commands to install OXID econdaanalytics module:
 composer require oxid-esales/econda-analytics-module
 ```
 
+### Compatibility
+
+- Module's **master** branch is compatible with shop's **b-6.x** and **master** branches
+- Module's **b-1.1.x** is compatible with shop's **b-6.1.x** and **b-6.0.x** branches
+
 ### Privacy protection setup
 
 To comply with the privacy protection laws, the Econda Analytics module provides functionality.
