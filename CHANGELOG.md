@@ -16,6 +16,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 - Dropped support of php 7.0
 
+## [1.1.1] - Not released yet
+
+### Fixed
+- Fixed integration tests
+
 ## [1.1.0] - 2019-04-29
 
 ### Added
