@@ -11,8 +11,6 @@ use OxidEsales\EcondaAnalyticsModule\Application\Controller\Admin\Tab\TrackingTa
 use OxidEsales\EcondaAnalyticsModule\Application\Factory;
 use OxidEsales\EcondaTrackingComponent\File\FileSystem;
 use stdClass;
-use Symfony\Component\Filesystem\Exception\IOException;
-use Symfony\Component\Filesystem\Filesystem as SymfonyFileSystem;
 
 class TrackingTabControllerTest extends \OxidEsales\TestingLibrary\UnitTestCase
 {
@@ -77,17 +75,10 @@ class TrackingTabControllerTest extends \OxidEsales\TestingLibrary\UnitTestCase
 
     protected function getFactoryStubWhenNotPossibleToCreateDirectory()
     {
-        // Mock SymfonyFileSystem instead of FileSystem,
-        // because it uses return type hints,
-        // which are not compatible with phpinit 4.8.26 (this version is used in b-6.1.x shop)
-        $mockedFileSystem = $this
-            ->getMockBuilder(SymfonyFileSystem::class)
-            ->setMethods(['mkdir'])
+        $fileSystem = $this->getMockBuilder(FileSystem::class)
+            ->disableOriginalConstructor()
             ->getMock();
-        $mockedFileSystem
-            ->method('mkdir')
-            ->willThrowException(new IOException(''));
-        $fileSystem = new FileSystem($mockedFileSystem);
+        $fileSystem->method('createDirectory')->willReturn(false);
 
         $factory = $this->getMockBuilder(Factory::class)
             ->setMethods(['makeFileSystem'])
@@ -99,14 +90,10 @@ class TrackingTabControllerTest extends \OxidEsales\TestingLibrary\UnitTestCase
 
     protected function getFactoryStubWhenUploadingFileSucceeds()
     {
-        // Mock SymfonyFileSystem instead of FileSystem,
-        // because it uses return type hints,
-        // which are not compatible with phpinit 4.8.26 (this version is used in b-6.1.x shop)
-        $mockedFileSystem = $this
-            ->getMockBuilder(SymfonyFileSystem::class)
-            ->setMethods(['mkdir'])
+        $fileSystem = $this->getMockBuilder(FileSystem::class)
+            ->disableOriginalConstructor()
             ->getMock();
-        $fileSystem = new FileSystem($mockedFileSystem);
+        $fileSystem->method('createDirectory')->willReturn(true);
 
         $fileUploader = $this->getMockBuilder(FileUpload::class)
             ->disableOriginalConstructor()
@@ -124,14 +111,10 @@ class TrackingTabControllerTest extends \OxidEsales\TestingLibrary\UnitTestCase
 
     protected function getFactoryStubWhenUploadingFileFailure()
     {
-        // Mock SymfonyFileSystem instead of FileSystem,
-        // because it uses return type hints,
-        // which are not compatible with phpinit 4.8.26 (this version is used in b-6.1.x shop)
-        $mockedFileSystem = $this
-            ->getMockBuilder(SymfonyFileSystem::class)
-            ->setMethods(['mkdir'])
+        $fileSystem = $this->getMockBuilder(FileSystem::class)
+            ->disableOriginalConstructor()
             ->getMock();
-        $fileSystem = new FileSystem($mockedFileSystem);
+        $fileSystem->method('createDirectory')->willReturn(true);
 
         $fileUploader = $this->getMockBuilder(FileUpload::class)
             ->disableOriginalConstructor()
@@ -171,17 +154,10 @@ class TrackingTabControllerTest extends \OxidEsales\TestingLibrary\UnitTestCase
      */
     protected function makeFileSystemStub($isFilePresent)
     {
-        // Mock SymfonyFileSystem instead of FileSystem,
-        // because it uses return type hints,
-        // which are not compatible with phpinit 4.8.26 (this version is used in b-6.1.x shop)
-        $mockedFileSystem = $this
-            ->getMockBuilder(SymfonyFileSystem::class)
-            ->setMethods(['exists'])
+        $fileSystemStub = $this->getMockBuilder(FileSystem::class)
+            ->disableOriginalConstructor()
             ->getMock();
-        $mockedFileSystem
-            ->method('exists')
-            ->willReturn($isFilePresent);
-        $fileSystemStub = new FileSystem($mockedFileSystem);
+        $fileSystemStub->method('isFilePresent')->willReturn($isFilePresent);
 
         return $fileSystemStub;
     }
