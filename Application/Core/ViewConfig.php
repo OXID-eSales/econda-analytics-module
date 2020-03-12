@@ -26,6 +26,6 @@ class ViewConfig extends ViewConfig_parent
     public function oeEcondaAnalyticsShowTrackingNote(): string
     {
         $config = \OxidEsales\Eshop\Core\Registry::getConfig();
-        return $config->getConfigParam('sOeEcondaAnalyticsTrackingShowNote');
+        return $config->getConfigParam('sOeEcondaAnalyticsTrackingShowNote') ?? '';
     }
 }
