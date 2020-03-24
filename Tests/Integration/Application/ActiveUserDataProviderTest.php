@@ -14,13 +14,13 @@ class ActiveUserDataProviderTest extends \OxidEsales\TestingLibrary\UnitTestCase
 {
     use UserPreparationTrait;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->createUser('userid');
         parent::setUp();
     }
 
-    public function tearDown()
+    protected function tearDown(): void
     {
         $this->deleteUser('userid');
         parent::tearDown();
