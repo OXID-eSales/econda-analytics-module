@@ -18,6 +18,7 @@ composer require oxid-esales/econda-analytics-module
 ### Compatibility
 
 - Module's **master** branch is compatible with shop's **master** branch
+- Module's **b-6.3.x** branch is compatible with shop's **b-6.3.x** branch
 - Module's **b-1.2.x** branch is compatible with shop's **b-6.2.x** branch
 - Module's **b-1.1.x** branch is compatible with shop's **b-6.1.x** and **b-6.0.x** branches
 
