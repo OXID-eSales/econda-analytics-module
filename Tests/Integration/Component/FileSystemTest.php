@@ -26,12 +26,21 @@ class FileSystemTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $this->assertTrue(is_dir($this->virtualDirectory.'/testDirectory'));
     }
 
+    public function testRecursiveDirectorySuccessfulCreation()
+    {
+        $fileSystem = new \OxidEsales\EcondaTrackingComponent\File\FileSystem(new Filesystem());
+
+        $this->assertTrue($fileSystem->createDirectory($this->virtualDirectory . '/not_yet_existing/testDirectory'));
+        $this->assertTrue(is_dir($this->virtualDirectory . '/not_yet_existing/testDirectory'));
+    }
+
     public function testDirectoryUnsuccessfulCreation()
     {
         $fileSystem = new \OxidEsales\EcondaTrackingComponent\File\FileSystem(new Filesystem());
 
-        $this->assertFalse($fileSystem->createDirectory('/not_existing_directory/testDirectory'));
-        $this->assertFalse(is_dir('/not_existing_directory/testDirectory'));
+        chmod($this->virtualDirectory, 555);
+        $this->assertFalse($fileSystem->createDirectory($this->virtualDirectory . '/not_existing_directory/testDirectory'));
+        $this->assertFalse(is_dir($this->virtualDirectory . '/not_existing_directory/testDirectory'));
     }
 
     public function testIfPathNotWritable()

@@ -20,7 +20,7 @@ $aModule = [
         'en' => 'Module adds analytics functionality.',
     ],
     'thumbnail' => '/out/pictures/logo.png',
-    'version' => '1.2.0',
+    'version' => '1.3.0',
     'author' => 'OXID eSales AG',
     'url' => 'https://www.oxid-esales.com',
     'email' => 'info@oxid-esales.com',
