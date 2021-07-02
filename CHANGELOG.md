@@ -6,13 +6,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [2.0.0] - Unreleased
 
-### Changed
-- Increase `oxid-esales/econda-tracking-component` version.
-- Increase `php` version.
-
 ### Fixed
 - Test compatibility with removal of oxconfig encoding feature.
 - Fixed compatibility issues regarding setUp and tearDown phpunit methods.
+
+## [1.3.0] - 2021-07-02
+
+### Changed
+- Increase `oxid-esales/econda-tracking-component` version
+- Compatibility with eShop compilation 6.3
+- Updated php version requirements
 
 ## [1.2.0] - 2019-07-05
 
@@ -58,7 +61,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [1.0.0] - 2018-11-19
 
-[2.0.0]: https://github.com/OXID-eSales/econda-analytics-module/compare/v1.2.0...master
+[2.0.0]: https://github.com/OXID-eSales/econda-analytics-module/compare/v1.3.0...master
+[1.3.0]: https://github.com/OXID-eSales/econda-analytics-module/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/OXID-eSales/econda-analytics-module/compare/b-1.1.x...v1.2.0
 [1.1.1]: https://github.com/OXID-eSales/econda-analytics-module/compare/v1.1.0...b-1.1.x
 [1.1.0]: https://github.com/OXID-eSales/econda-analytics-module/compare/v1.0.4...v1.1.0
