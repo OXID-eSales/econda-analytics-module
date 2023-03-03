@@ -3,6 +3,8 @@ OXID Econda Analytics module
 
 Module adds Econda Analytics functionality.
 
+**Warning! The module is deprecated. Consider using the https://github.com/OXID-eSales/personalization-module**
+
 ## Requirements
 
 * OXID eShop compilation ^v6.1.0
